@@ -13,11 +13,12 @@
     <PackageProjectUrl>https://falaai.action.tec.br/api</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>falaai;api;sdk;call-center;contact-center;speech-to-text;transcription;conversation-intelligence;sentiment-analysis;compliance;audit;copc;iso-18295;lgpd;omnichannel;helpdesk;chatbot;whatsapp;crm;crm-integration</PackageTags>
     <Copyright>Copyright (c) 2026 Action Tec Br</Copyright>
     <RootNamespace>FalaAI.Api</RootNamespace>
     <Version>1.21.47</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FalaAI.Api.xml</DocumentationFile>
-    <RepositoryUrl>https://github.com/ActionTecBr/falaai-api</RepositoryUrl>
+    <RepositoryUrl>https://github.com/ActionTecBr/falaai-api-dotnet</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageReleaseNotes>Initial release (v1.21.47)</PackageReleaseNotes>
     <Nullable>annotations</Nullable>
