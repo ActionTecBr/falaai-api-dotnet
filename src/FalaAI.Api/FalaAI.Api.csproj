@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
+    <TargetFramework>net8.0</TargetFramework>
+    <AssemblyName>FalaAI.Api</AssemblyName>
+    <PackageId>FalaAI.Api</PackageId>
+    <OutputType>Library</OutputType>
+    <Authors>Action Tec Br</Authors>
+    <Company>Action Tec Br</Company>
+    <AssemblyTitle>FalaAI API SDK</AssemblyTitle>
+    <Description>Official .NET SDK for the FalaAI API - AI-powered call transcription, diagnosis and compliance auditing.</Description>
+    <PackageProjectUrl>https://falaai.action.tec.br/api</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Copyright>Copyright (c) 2026 Action Tec Br</Copyright>
+    <RootNamespace>FalaAI.Api</RootNamespace>
+    <Version>1.21.47</Version>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\FalaAI.Api.xml</DocumentationFile>
+    <RepositoryUrl>https://github.com/ActionTecBr/falaai-api</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReleaseNotes>Initial release (v1.21.47)</PackageReleaseNotes>
+    <Nullable>annotations</Nullable>
+    <ManagePackageVersionsCentrally>false</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JsonSubTypes" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Polly" Version="8.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
