@@ -85,18 +85,18 @@ public class AiTest
         Assert.IsType<int>(d.Usage.CreditsConsumed);
         Assert.IsType<int>(d.Usage.ProcessingMs);
 
-        var ab = new AuditoriaRiscoRequest(model: "falaai-auditoria-risco-1", text: tr.Text, dialog: tr.Dialog, audioEvents: events,
+        var ab = new RiskAuditRequest(model: "falaai-risk-audit-1", text: tr.Text, dialog: tr.Dialog, audioEvents: events,
             durationSeconds: tr.DurationSeconds, language: "pt-BR", responseLanguage: "pt-BR",
-            callDirection: AuditoriaRiscoRequest.CallDirectionEnum.Inbound,
+            callDirection: RiskAuditRequest.CallDirectionEnum.Inbound,
             participants: new List<Participant>
             {
                 new Participant(interlocutor: "Speaker 1", name: "Mateus", role: Participant.RoleEnum.Agent),
                 new Participant(interlocutor: "Speaker 2", name: "Cliente", role: Participant.RoleEnum.Client)
             },
             responseFormat: "v2", clientReferenceId: "e2e-aud-2026-09-22-001");
-        var ar = await an.CreateAuditoriaRiscoV1AnalyzeAuditoriaRiscoPostWithHttpInfoAsync(ab);
+        var ar = await an.CreateRiskAuditV1AnalyzeRiskAuditPostWithHttpInfoAsync(ab);
         var pub = ar.Data.Response;
-        E2eLogger.Log("auditoriaRisco", "POST", "/v1/analyze/auditoriaRisco", ab, ar.Data, $"HTTP {(int)ar.StatusCode}", (int)ar.StatusCode);
+        E2eLogger.Log("riskAudit", "POST", "/v1/analyze/riskAudit", ab, ar.Data, $"HTTP {(int)ar.StatusCode}", (int)ar.StatusCode);
         Assert.Equal(HttpStatusCode.OK, ar.StatusCode);
         NonEmpty("meta.id", pub.Meta.Id);
         Assert.IsType<int>(pub.Meta.Usage.Characters);
@@ -112,7 +112,7 @@ public class AiTest
         Assert.NotNull(pub.CategoriesSummary);
         Assert.NotNull(pub.Indexer);
         Assert.NotNull(pub.Summary);
-        Assert.NotNull(pub.AcoesI18n);
+        Assert.NotNull(pub.ActionsI18n);
         Assert.NotNull(pub.AuditDecisions);
         Assert.NotNull(pub.ScoringExplanation);
         Assert.NotNull(pub.HtmlReport);

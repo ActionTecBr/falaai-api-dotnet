@@ -58,13 +58,11 @@ public class ContractTest
     {
         var files = new[]
         {
-            "curl/transcribe.sh", "python/transcribe.py", "nodejs/transcribe.js",
-            "curl/auditoria_risco.sh", "python/auditoria_risco.py", "nodejs/auditoria_risco.js",
-            "curl/diagnostic.sh", "python/diagnostic.py", "nodejs/diagnostic.js"
+            "TranscribeExample.cs", "DiagnoseExample.cs", "AuditExample.cs", "HealthExample.cs"
         };
         foreach (var f in files)
         {
-            Assert.True(File.Exists(Path.Combine(Root, "app", "static", "examples", f)), "exemplo ausente: " + f);
+            Assert.True(File.Exists(Path.Combine(Root, "sdks", "dotnet", "examples", f)), "exemplo ausente: " + f);
         }
     }
 }
