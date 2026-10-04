@@ -12,28 +12,15 @@ Official **.NET / C# SDK** for the **FalaAI API** — transcribe audio, analyze 
 
 ## Use any FalaAI API independently
 
-FalaAI is a set of **independent REST APIs**. You **do not** need FalaAI Transcription to use FalaAI analysis or compliance auditing. If your application already has a transcript (your own speech-to-text, a chatbot transcript, CRM history or messaging), send that text straight to the analysis APIs.
+FalaAI is a set of **independent REST APIs** — every API is **optional**, so you chain any subset, in any combination. You **do not** need FalaAI Transcription to use FalaAI analysis or compliance auditing. If your application already has a transcript (your own speech-to-text, a chatbot transcript, CRM history or messaging), send that text straight to the analysis APIs.
 
 | If you have... | Use |
 |---|---|
-| Audio but no transcript | `SpeechApi` — Transcription |
-| An existing transcript | `AnalysisApi` — Diagnostic |
-| A transcript needing compliance analysis | `AnalysisApi` — Risk Audit |
+| Audio but no transcript | `SpeechApi` - Transcription |
+| An existing transcript | `AnalysisApi` - Diagnostic |
+| A transcript needing compliance analysis | `AnalysisApi` - Risk Audit |
 | An existing transcript needing both | Diagnostic + Risk Audit |
 | Your own STT provider (Whisper, Deepgram...) | Skip FalaAI Transcription |
-
-```text
-Your STT                             ->  FalaAI Diagnostic  ->  FalaAI Risk Audit
-Telegram voice -> your STT           ->  FalaAI Risk Audit
-3CX / Asterisk / Genesys transcript  ->  FalaAI Diagnostic  ->  FalaAI Risk Audit
-CRM conversation                     ->  FalaAI Risk Audit
-```
-
-> Integrate FalaAI at **any point** of your pipeline — not only at capture/transcription.
-
-## Use the APIs the way you want
-
-Every FalaAI API is **independent and optional** — chain any subset, in any combination.
 
 ```mermaid
 flowchart LR
@@ -46,7 +33,7 @@ flowchart LR
   R --> O
 ```
 
-> Skip **Transcribe** if you already have text. Call only **Diagnostic**, only **Risk Audit**, or both — whatever your case needs.
+> Integrate FalaAI at **any point** of your pipeline - not only at capture/transcription. Skip **Transcribe** if you already have text.
 
 ## Install
 
@@ -153,11 +140,49 @@ FalaAI API is an **AI conversation-intelligence API** for analyzing customer-ser
 
 ## Use cases
 
-- **Contact center / Quality** — audit 100% of conversations instead of a sample.
-- **Compliance / Legal** — auditable evidence for audits and disputes.
-- **CX / Operations** — risk score, sentiment and reason per conversation.
-- **Sales** — analyze sales calls and extract structured outcomes.
-- **BI / Data** — typed JSON ready for your database or analytics stack.
+- **Contact center / Quality** - audit 100% of conversations instead of a sample.
+- **Compliance / Legal** - auditable evidence for audits and disputes.
+- **CX / Operations** - risk score, sentiment and reason per conversation.
+- **Sales** - analyze sales calls and extract structured outcomes.
+- **BI / Data** - typed JSON ready for your database or analytics stack.
+
+## Why FalaAI
+
+- **Audit 100%, not a sample** - every conversation gets a score, not a random QA sample.
+- **Auditable by design** - a compliance risk score with detections/violations and an HTML report you can hand to an auditor.
+- **Credits, not tokens** - you know exactly what each call costs (per second of audio, per character of text, per conversation). Monthly plans + non-expiring top-up packs.
+- **Zero-storage** - audio/text/results are processed and discarded; only usage/audit records remain. TLS in transit + at rest, per-account isolation (multitenancy), LGPD (you are the controller; Action Tec is the processor).
+- **3 native languages** (PT/EN/ES) · **start free** (no card).
+- **B2B ready** - one Enterprise plan serves N clients, no per-user fee (ideal for ISVs).
+
+## Integrations
+
+FalaAI is **language-independent** - integrate at **any point** of your pipeline (capture, transcription, analysis or audit). Common ecosystems:
+
+| Ecosystem | How |
+|---|---|
+| **PABX / telephony (3CX, Asterisk, Genesys)** | Send the recording to Transcribe, or the transcript to Diagnostic/Risk Audit. |
+| **CRM / ERP (Odoo, Salesforce, SAP Service Cloud, HubSpot)** | Attach the structured JSON (summary, reason, sentiment, risk score) to the record. |
+| **Contact center / QA (Zendesk, Twilio Flex, Take Blip)** | Batch-audit conversations and feed the score into your QA dashboard. |
+| **Chatbots / messaging (WhatsApp, Telegram, Microsoft Teams)** | Extract conversations from an export and analyze them. |
+| **BI / Data** | Typed JSON ready for your warehouse or analytics stack. |
+
+> These are **integration examples**, not certified native integrations. Any platform can integrate through **REST / cURL** - the standard, language-independent path. Native ingestion connectors are on the roadmap.
+
+**This SDK's language (.NET / C#):** FalaAI is language-independent; this package targets **.NET / C#** backends (your target platform does not need to be built in .NET).
+
+| Platform / environment (.NET / C#) | Integration |
+|---|---|
+| **Microsoft Dynamics 365** | `FalaAI.Api` (C#) |
+| **Microsoft Teams** apps | `FalaAI.Api` (+ Microsoft Teams .NET SDK) |
+| **ASP.NET / Web API** | `FalaAI.Api` |
+| **Windows service / worker** | `FalaAI.Api` |
+| **.NET CRM / ERP / contact-center backend** | `FalaAI.Api` |
+| Other stacks (3CX, Salesforce, Odoo, Genesys...) | REST / cURL - [API reference](https://api01-falaai.action.tec.br/docs) |
+
+## BYOT - Bring Your Own Transcription
+
+Already have speech-to-text (Whisper, Deepgram, AssemblyAI, your own)? **Skip Transcription** and send the text straight to **Diagnostic** and/or **Risk Audit**. You only pay for what you use.
 
 ## SDK surface (.NET)
 
@@ -167,18 +192,19 @@ FalaAI API is an **AI conversation-intelligence API** for analyzing customer-ser
 | `HealthApi` | `FalaAI.Api.Api` | `HealthCheckAsync`, `HealthCheckHeadAsync` |
 | `SpeechApi` | `FalaAI.Api.Api` | `CreateTranscriptionV1AudioTranscriptionsPostAsync` |
 | `AnalysisApi` | `FalaAI.Api.Api` | `CreateDiagnosticV1AnalyzeDiagnosticPostAsync`, `CreateRiskAuditV1AnalyzeRiskAuditPostAsync` |
+| `WhatsappApi` | `FalaAI.Api.Api` | `ExtractConversationsV1WhatsappExtractConversationsPostAsync` |
 | `UsageApi` | `FalaAI.Api.Api` | usage log and usage by key |
 | `WebhooksApi` | `FalaAI.Api.Api` | list / create / update / delete webhooks |
 | `EmailAlertsApi` | `FalaAI.Api.Api` | list / create / update / delete email alerts |
 | `VersionApi` | `FalaAI.Api.Api` | `GetVersionApiVersionGetAsync` |
-| Models | `FalaAI.Api.Model` | `TranscriptionResponse`, `DiagnosticRequest`/`DiagnosticResponse`, `RiskAuditRequest`, `RiskAuditV2Response`, `Participant`, `DiagnosticAudioEvent` |
+| Models | `FalaAI.Api.Model` | `TranscriptionResponse`, `DiagnosticRequest`/`DiagnosticResponse`, `RiskAuditRequest`, `RiskAuditV2Response`, `Participant`, `DiagnosticAudioEvent`, `WhatsappConversationsResponse` |
 | `FileParameter` | `FalaAI.Api.Client` | multipart file upload |
 
 > Model IDs: `falaai-transcribe-1`, `falaai-diagnostic-1`, `falaai-risk-audit-1`.
 
 ## Examples
 
-Runnable examples in [`examples/`](./examples): `HealthExample.cs`, `TranscribeExample.cs`, `DiagnoseExample.cs`, `AuditExample.cs`.
+Runnable examples in [`examples/`](./examples): `HealthExample.cs`, `TranscribeExample.cs`, `DiagnoseExample.cs`, `AuditExample.cs`, `WhatsappExample.cs`.
 
 ## Authentication
 
@@ -200,21 +226,6 @@ catch (FalaAI.Api.Client.ApiException ex)
 }
 ```
 
-## Where to integrate (this SDK)
-
-FalaAI is language-independent; this package targets **.NET / C#** backends. Your target platform does not need to be built in .NET.
-
-| Platform / environment (this SDK's language: **.NET / C#**) | Integration |
-|---|---|
-| **Microsoft Dynamics 365** | `FalaAI.Api` (C#) |
-| **Microsoft Teams** apps | `FalaAI.Api` (+ Microsoft Teams .NET SDK) |
-| **ASP.NET / Web API** | `FalaAI.Api` |
-| **Windows service / worker** | `FalaAI.Api` |
-| **.NET CRM / ERP / contact-center backend** | `FalaAI.Api` |
-| Other stacks (3CX, Salesforce, Odoo, Genesys...) | REST / cURL — [API reference](https://api01-falaai.action.tec.br/docs) (or the SDK for that backend's language) |
-
-> These are **integration examples**, not certified native integrations. Any platform can integrate through **REST / cURL** — the standard, language-independent path — see the [API reference](https://api01-falaai.action.tec.br/docs). Authenticated calls use `Authorization: Bearer fai_<key>`.
-
 ## Production usage
 
 - Store API keys in environment variables or a secret manager — never hard-code.
@@ -227,7 +238,7 @@ FalaAI is language-independent; this package targets **.NET / C#** backends. You
 | Requirement | Version |
 |---|---|
 | .NET | 8.0+ (`net8.0`) |
-| API | v1.21.49 |
+| API | v1.21.51 |
 
 ## Documentation
 
@@ -240,7 +251,7 @@ FalaAI is language-independent; this package targets **.NET / C#** backends. You
 
 ## Versioning
 
-Semantic versioning; the SDK version tracks the API version (`1.21.49`). See [CHANGELOG.md](CHANGELOG.md) and [Releases](https://github.com/ActionTecBr/falaai-api-dotnet/releases).
+Semantic versioning; the SDK version tracks the API version (`1.21.51`). See [CHANGELOG.md](CHANGELOG.md) and [Releases](https://github.com/ActionTecBr/falaai-api-dotnet/releases).
 
 ## Security
 

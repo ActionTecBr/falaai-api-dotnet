@@ -29,7 +29,7 @@ public class AuditExample
             responseLanguage: "pt-BR",
             callDirection: RiskAuditRequest.CallDirectionEnum.Inbound,
             participants: new List<Participant> { new Participant(interlocutor: "Speaker 1", name: "Carla", role: Participant.RoleEnum.Agent), new Participant(interlocutor: "Speaker 2", name: "", role: Participant.RoleEnum.Client) },
-            responseFormat: "v2",
+            responseFormat: RiskAuditRequest.ResponseFormatEnum.V2,
             clientReferenceId: "call-202609271311"));
 
 Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(audit, Newtonsoft.Json.Formatting.Indented));

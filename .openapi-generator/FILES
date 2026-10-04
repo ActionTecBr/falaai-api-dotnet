@@ -65,6 +65,12 @@ docs/WebhookEvent.md
 docs/WebhookItem.md
 docs/WebhookListResponse.md
 docs/WebhooksApi.md
+docs/WhatsappApi.md
+docs/WhatsappConversation.md
+docs/WhatsappConversationsResponse.md
+docs/WhatsappMeta.md
+docs/WhatsappSpeaker.md
+docs/WhatsappUsage.md
 git_push.sh
 src/FalaAI.Api.Test/Api/AnalysisApiTests.cs
 src/FalaAI.Api.Test/Api/EmailAlertsApiTests.cs
@@ -73,6 +79,7 @@ src/FalaAI.Api.Test/Api/SpeechApiTests.cs
 src/FalaAI.Api.Test/Api/UsageApiTests.cs
 src/FalaAI.Api.Test/Api/VersionApiTests.cs
 src/FalaAI.Api.Test/Api/WebhooksApiTests.cs
+src/FalaAI.Api.Test/Api/WhatsappApiTests.cs
 src/FalaAI.Api.Test/FalaAI.Api.Test.csproj
 src/FalaAI.Api.Test/Model/AudioEventTests.cs
 src/FalaAI.Api.Test/Model/AudioInputMetaTests.cs
@@ -128,6 +135,11 @@ src/FalaAI.Api.Test/Model/VersionResponseTests.cs
 src/FalaAI.Api.Test/Model/WebhookEventTests.cs
 src/FalaAI.Api.Test/Model/WebhookItemTests.cs
 src/FalaAI.Api.Test/Model/WebhookListResponseTests.cs
+src/FalaAI.Api.Test/Model/WhatsappConversationTests.cs
+src/FalaAI.Api.Test/Model/WhatsappConversationsResponseTests.cs
+src/FalaAI.Api.Test/Model/WhatsappMetaTests.cs
+src/FalaAI.Api.Test/Model/WhatsappSpeakerTests.cs
+src/FalaAI.Api.Test/Model/WhatsappUsageTests.cs
 src/FalaAI.Api/Api/AnalysisApi.cs
 src/FalaAI.Api/Api/EmailAlertsApi.cs
 src/FalaAI.Api/Api/HealthApi.cs
@@ -135,6 +147,7 @@ src/FalaAI.Api/Api/SpeechApi.cs
 src/FalaAI.Api/Api/UsageApi.cs
 src/FalaAI.Api/Api/VersionApi.cs
 src/FalaAI.Api/Api/WebhooksApi.cs
+src/FalaAI.Api/Api/WhatsappApi.cs
 src/FalaAI.Api/Client/ApiClient.cs
 src/FalaAI.Api/Client/ApiException.cs
 src/FalaAI.Api/Client/ApiResponse.cs
@@ -208,3 +221,8 @@ src/FalaAI.Api/Model/VersionResponse.cs
 src/FalaAI.Api/Model/WebhookEvent.cs
 src/FalaAI.Api/Model/WebhookItem.cs
 src/FalaAI.Api/Model/WebhookListResponse.cs
+src/FalaAI.Api/Model/WhatsappConversation.cs
+src/FalaAI.Api/Model/WhatsappConversationsResponse.cs
+src/FalaAI.Api/Model/WhatsappMeta.cs
+src/FalaAI.Api/Model/WhatsappSpeaker.cs
+src/FalaAI.Api/Model/WhatsappUsage.cs
