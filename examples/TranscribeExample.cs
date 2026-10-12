@@ -25,7 +25,7 @@ public class TranscribeExample
                 file,
                 model: "falaai-transcribe-1",
                 language: "pt",
-                clientReferenceId: "call_202609271408");
+                clientReferenceId: "20260927140800000-aud");
         }
 
         Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(transcription, Newtonsoft.Json.Formatting.Indented));

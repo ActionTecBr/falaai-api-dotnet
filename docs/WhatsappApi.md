@@ -8,7 +8,7 @@ All URIs are relative to *https://api01-falaai.action.tec.br*
 
 <a id="extractconversationsv1whatsappextractconversationspost"></a>
 # **ExtractConversationsV1WhatsappExtractConversationsPost**
-> WhatsappConversationsResponse ExtractConversationsV1WhatsappExtractConversationsPost (FileParameter file, string start, string end, string timezone, string dateFormat, decimal? gapMinutes = null, int? minMessages = null, decimal? charsPerMinute = null, string? clientReferenceId = null)
+> WhatsappConversationsResponse ExtractConversationsV1WhatsappExtractConversationsPost (FileParameter file, string start, string end, string timezone, string dateFormat, decimal? gapMinutes = null, int? minMessages = null, bool? voiceNote = null, bool? expression = null, string? clientReferenceId = null)
 
 Extract and segment WhatsApp conversations from an export
 
@@ -43,13 +43,14 @@ namespace Example
             var dateFormat = "dateFormat_example";  // string | 
             var gapMinutes = 720MD;  // decimal? |  (optional)  (default to 720M)
             var minMessages = 2;  // int? |  (optional)  (default to 2)
-            var charsPerMinute = 800MD;  // decimal? |  (optional)  (default to 800M)
+            var voiceNote = true;  // bool? | Transcrever mensagens de voz/video gravadas na hora? (optional)  (default to true)
+            var expression = true;  // bool? | Descrever expressoes visuais (figurinha/GIF/imagem)? (optional)  (default to true)
             var clientReferenceId = "clientReferenceId_example";  // string? |  (optional) 
 
             try
             {
                 // Extract and segment WhatsApp conversations from an export
-                WhatsappConversationsResponse result = apiInstance.ExtractConversationsV1WhatsappExtractConversationsPost(file, start, end, timezone, dateFormat, gapMinutes, minMessages, charsPerMinute, clientReferenceId);
+                WhatsappConversationsResponse result = apiInstance.ExtractConversationsV1WhatsappExtractConversationsPost(file, start, end, timezone, dateFormat, gapMinutes, minMessages, voiceNote, expression, clientReferenceId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -70,7 +71,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Extract and segment WhatsApp conversations from an export
-    ApiResponse<WhatsappConversationsResponse> response = apiInstance.ExtractConversationsV1WhatsappExtractConversationsPostWithHttpInfo(file, start, end, timezone, dateFormat, gapMinutes, minMessages, charsPerMinute, clientReferenceId);
+    ApiResponse<WhatsappConversationsResponse> response = apiInstance.ExtractConversationsV1WhatsappExtractConversationsPostWithHttpInfo(file, start, end, timezone, dateFormat, gapMinutes, minMessages, voiceNote, expression, clientReferenceId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -94,7 +95,8 @@ catch (ApiException e)
 | **dateFormat** | **string** |  |  |
 | **gapMinutes** | **decimal?** |  | [optional] [default to 720M] |
 | **minMessages** | **int?** |  | [optional] [default to 2] |
-| **charsPerMinute** | **decimal?** |  | [optional] [default to 800M] |
+| **voiceNote** | **bool?** | Transcrever mensagens de voz/video gravadas na hora? | [optional] [default to true] |
+| **expression** | **bool?** | Descrever expressoes visuais (figurinha/GIF/imagem)? | [optional] [default to true] |
 | **clientReferenceId** | **string?** |  | [optional]  |
 
 ### Return type

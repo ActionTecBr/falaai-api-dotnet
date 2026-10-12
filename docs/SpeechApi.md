@@ -38,8 +38,8 @@ namespace Example
             var apiInstance = new SpeechApi(httpClient, config, httpClientHandler);
             var file = new System.IO.MemoryStream(System.IO.File.ReadAllBytes("/path/to/file.txt"));  // FileParameter | 
             var model = "\"falaai-transcribe-1\"";  // string? |  (optional)  (default to "falaai-transcribe-1")
-            var language = "\"pt\"";  // string? |  (optional)  (default to "pt")
-            var clientReferenceId = "clientReferenceId_example";  // string? | Optional client-supplied ID echoed verbatim in the response. Use to correlate/sync with your system. Accepted charset: [A-Za-z0-9._:-]. Not idempotency. (optional) 
+            var language = "language_example";  // string? |  (optional) 
+            var clientReferenceId = "clientReferenceId_example";  // string? | Optional client-supplied ID echoed verbatim in the response. Use to correlate/sync with your system. Accepted charset: [A-Za-z0-9 _/:.-], max 60 chars. Not idempotency. (optional) 
 
             try
             {
@@ -84,8 +84,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **file** | **FileParameter****FileParameter** |  |  |
 | **model** | **string?** |  | [optional] [default to &quot;falaai-transcribe-1&quot;] |
-| **language** | **string?** |  | [optional] [default to &quot;pt&quot;] |
-| **clientReferenceId** | **string?** | Optional client-supplied ID echoed verbatim in the response. Use to correlate/sync with your system. Accepted charset: [A-Za-z0-9._:-]. Not idempotency. | [optional]  |
+| **language** | **string?** |  | [optional]  |
+| **clientReferenceId** | **string?** | Optional client-supplied ID echoed verbatim in the response. Use to correlate/sync with your system. Accepted charset: [A-Za-z0-9 _/:.-], max 60 chars. Not idempotency. | [optional]  |
 
 ### Return type
 

@@ -13,13 +13,14 @@ Name | Type | Description | Notes
 **End** | **string** | Window end (ISO) | 
 **GapMinutes** | **decimal** | Gap used to split conversations | 
 **MinMessages** | **int** | Minimum messages per conversation | 
-**CharsPerMinute** | **decimal** | Chars per minute used to estimate duration | 
 **Turns** | **int** | Total parsed turns | 
 **SystemLines** | **int** | System lines ignored | 
 **ConversationsTotal** | **int** | Conversations before window filter | 
 **ConversationsInWindow** | **int** | Conversations overlapping the window | 
 **MonologuesDropped** | **int** | Single-speaker conversations dropped | 
 **ConversationsSelected** | **int** | Final conversations returned | 
+**VoiceNote** | **bool** | Voice/video medias were transcribed | 
+**Expression** | **bool** | Visual expressions were described | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

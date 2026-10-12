@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Analysis** | [**DiagnosticAnalysisMap**](DiagnosticAnalysisMap.md) | The 6 conversation analyses (5 + participants) | 
 **Usage** | [**DiagnosticUsage**](DiagnosticUsage.md) | Usage and processing information | 
 **ClientReferenceId** | **string** | Client-supplied ID echoed verbatim (if provided in request) | [optional] 
+**HtmlReport** | **string** | Visual HTML report of the diagnosis (base64 gzip). Only present when &#39;dialog&#39; is provided; null for text-only requests. | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
