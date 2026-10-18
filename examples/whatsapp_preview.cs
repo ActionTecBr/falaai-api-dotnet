@@ -14,19 +14,20 @@ public class WhatsappExample
             AccessToken = Environment.GetEnvironmentVariable("FALAAI_API_KEY"),
         };
 
-        // REQUIRED: file (.zip/.txt export), start, end, timezone, date_format + Authorization
+        // PREVIEW (dry_run) - passo GRATIS: valida/segmenta o export e ESTIMA os creditos, SEM IA e SEM debito.
+        // SEM start/end: a API usa o periodo REAL do export (fora do preview a janela e obrigatoria).
+        // REQUIRED: file (.zip/.txt export), timezone, date_format + Authorization
         // OPTIONAL: gap_minutes (default 720) | min_messages (default 2) | client_reference_id
         using var stream = File.OpenRead("demo_whatsapp.zip");
         var result = await new WhatsappApi(config).ExtractConversationsV1WhatsappExtractConversationsPostAsync(
             file: stream,
-            start: "2024-01-01 00:00",
-            end: "2024-12-31 23:59",
             timezone: "-3",
             dateFormat: "day_first",
             gapMinutes: 720,
             minMessages: 2,
             voiceNote: true,
-            expression: true);
+            expression: true,
+            dryRun: true);
 
         Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(result, Newtonsoft.Json.Formatting.Indented));
     }

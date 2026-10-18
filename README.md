@@ -58,6 +58,8 @@ PowerShell: `$env:FALAAI_BASE_URL="https://api01-falaai.action.tec.br"; $env:FAL
 
 ### 3. Transcribe a call (audio -> text)
 
+> No audio file? See **[audio help](https://falaai.action.tec.br/api/audio-help)** for accepted formats and limits.
+
 ```csharp
 using System;
 using System.IO;
@@ -115,14 +117,15 @@ var config = new Configuration
 var analysis = new AnalysisApi(config);
 
 var transcript = "Good morning, how can I help? I need to cancel my subscription.";
+var dialog = "Speaker 1: [00:00:00.100 - 00:00:03.100] Good morning, how can I help?\nSpeaker 2: [00:00:03.100 - 00:00:06.200] I need to cancel my subscription.";
 
 // 5 analyses in one call: summary, reason, action, topic, sentiment
 var diagnostic = await analysis.CreateDiagnosticV1AnalyzeDiagnosticPostAsync(
     new DiagnosticRequest(text: transcript, language: "pt-BR", durationSeconds: 81.46m));
 
-// Compliance risk score + violations + auditable report
+// Compliance risk score + violations + auditable report (Risk Audit requires a diarized 'dialog', not 'text')
 var audit = await analysis.CreateRiskAuditV1AnalyzeRiskAuditPostAsync(
-    new RiskAuditRequest(text: transcript, language: "pt-BR", responseLanguage: "pt-BR", durationSeconds: 81.46m));
+    new RiskAuditRequest(dialog: dialog, language: "pt-BR", responseLanguage: "pt-BR", durationSeconds: 81.46m));
 ```
 
 ## What is FalaAI API?
@@ -205,7 +208,7 @@ Already have speech-to-text (Whisper, Deepgram, AssemblyAI, your own)? **Skip Tr
 
 ## Examples
 
-Runnable examples in [`examples/`](./examples): `HealthExample.cs`, `TranscribeExample.cs`, `DiagnoseExample.cs`, `AuditExample.cs`, `WhatsappExample.cs`.
+Runnable examples in [`examples/`](https://github.com/ActionTecBr/falaai-api-dotnet/tree/main/examples): `HealthExample.cs`, `TranscribeExample.cs`, `DiagnoseExample.cs`, `AuditExample.cs`, `WhatsappExample.cs`.
 
 ## Authentication
 
@@ -239,7 +242,7 @@ catch (FalaAI.Api.Client.ApiException ex)
 | Requirement | Version |
 |---|---|
 | .NET | 8.0+ (`net8.0`) |
-| API | v1.21.54 |
+| API | v1.21.67 |
 
 ## Documentation
 
@@ -252,7 +255,7 @@ catch (FalaAI.Api.Client.ApiException ex)
 
 ## Versioning
 
-Semantic versioning; the SDK version tracks the API version (`1.21.54`). See [CHANGELOG.md](CHANGELOG.md) and [Releases](https://github.com/ActionTecBr/falaai-api-dotnet/releases).
+Semantic versioning; the SDK version tracks the API version (`1.21.67`). See [CHANGELOG.md](CHANGELOG.md) and [Releases](https://github.com/ActionTecBr/falaai-api-dotnet/releases).
 
 ## Security
 

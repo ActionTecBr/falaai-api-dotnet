@@ -12,6 +12,8 @@ All URIs are relative to *https://api01-falaai.action.tec.br*
 
 Transcribe audio to text
 
+Transcribes one uploaded audio file into text with speaker diarization and timestamped audio events (laughs, sighs, pauses), returning the full transcript, a turn-by-turn dialog with speaker labels and start/end timestamps, the detected events and the word count. Use it when a recording must become text for analysis, review or storage of the transcript. The required file field takes a single audio upload limited to 1GB and 3 hours, with accepted MIME types audio/mpeg, audio/mp3, audio/mp4, audio/m4a, audio/wav, audio/wave, audio/x-wav, audio/flac, audio/x-flac, audio/ogg, audio/opus, video/ogg, audio/webm, video/webm, audio/aac and audio/x-aac. model is optional and defaults to falaai-transcribe-1, the only supported value; language is an optional two-letter code (pt, en, es, fr, de, it, ja, ko, nl, pl, ru, tr, zh, vi, id, th, ar, hi, cs, da, el, fi, he, hu, ms, no, ro, sk, sv, ta, uk) that forces the audio language and is auto-detected when omitted; client_reference_id is optional, charset A-Za-z0-9 space _/:.- up to 60 chars, echoed verbatim (not idempotency). Billing is 1 credit per second of processed audio with a minimum of 10 credits per request, rounded to 2 decimals; usage reports credits_consumed and processing_ms. Stateless: the audio is processed in memory and never persisted (LGPD). Returns id (tr-), language, language_confidence, duration_seconds, text, dialog, audio_events, event_types, word_count and input metadata (duration, format, codec, sample rate, channels).
+
 ### Example
 ```csharp
 using System.Collections.Generic;

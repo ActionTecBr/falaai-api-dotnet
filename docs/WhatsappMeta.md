@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **ConversationsSelected** | **int** | Final conversations returned | 
 **VoiceNote** | **bool** | Voice/video medias were transcribed | 
 **Expression** | **bool** | Visual expressions were described | 
+**Windows** | **int** | Explicit windows used (0 &#x3D; simple start/end range) | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

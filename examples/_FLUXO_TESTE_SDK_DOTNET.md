@@ -1,5 +1,5 @@
 # FLUXO DE TESTES DA SDK .NET (NuGet `FalaAI.Api`)
-@version 1.1.0 | 12/10/2026 | MANUAL — nao e regenerado pelo exportador de exemplos
+@version 1.2.0 | 2026-10-15 | v1.2.0 (15/10): 3 variantes do WhatsApp (7 exemplos) + HTML de TODO endpoint com html_report + PASSO FINAL (sync sandbox-responses);  MANUAL — nao e regenerado pelo exportador de exemplos
 SDK: `D:\ProjetoFalaAI\FalaAI\FalaAI_api\sdks\dotnet\` (pacote NuGet `FalaAI.Api`) · Docker: imagem `mcr.microsoft.com/dotnet/sdk:8.0`
 Regra de fundo: `.opencode/rules/macro/modulos/falaai-api/sdk-fonte-unica.md` (tests/e2e = MANUAL)
 
@@ -7,10 +7,10 @@ Regra de fundo: `.opencode/rules/macro/modulos/falaai-api/sdk-fonte-unica.md` (t
 | # | Script / Arquivo | Path completo | Papel no fluxo |
 |---|---|---|---|
 | 1 | `run_docker.ps1` v1.1.0 | `D:\ProjetoFalaAI\FalaAI\FalaAI_api\sdks\dotnet\tests\e2e\run_docker.ps1` | WRAPPER (PowerShell): valida csproj + mp3 → **PASSO 0a** (sync exemplos) → Docker `sdk:8.0` → **PASSO FINAL** (sync sandbox-responses) |
-| 2 | `run_examples.sh` v2.1.0 | `D:\ProjetoFalaAI\FalaAI\FalaAI_api\sdks\dotnet\tests\e2e\run_examples.sh` | RUNNER (bash, roda DENTRO do container): **limpa logs antigos**, `dotnet build`, executa os 4 exemplos, grava os logs JSON + `.html` |
+| 2 | `run_examples.sh` v2.1.0 | `D:\ProjetoFalaAI\FalaAI\FalaAI_api\sdks\dotnet\tests\e2e\run_examples.sh` | RUNNER (bash, roda DENTRO do container): **limpa logs antigos**, `dotnet build`, executa os 7 exemplos, grava os logs JSON + `.html` |
 | 3 | `_generate_dotnet_examples.mjs` v1.4.0 | `D:\ProjetoFalaAI\FalaAI\FalaAI_api\sdks\dotnet\examples\_generate_dotnet_examples.mjs` | EXPORTADOR (**PASSO 0a**, roda no HOST): re-exporta os 4 `.cs` da FONTE UNICA + **gera o README** (versao/data) |
 | 4 | `sandbox-examples.ts` | `D:\ProjetoFalaAI\FalaAI\FalaAI_landing\lib\sandbox-examples.ts` | FONTE UNICA dos exemplos (8 linguagens x 4 endpoints, tokens `{{...}}`) |
-| 5 | `HealthExample.cs` · `TranscribeExample.cs` · `DiagnoseExample.cs` · `AuditExample.cs` | `D:\ProjetoFalaAI\FalaAI\FalaAI_api\sdks\dotnet\examples\*.cs` | OS 4 EXEMPLOS GERADOS (usam o SDK .NET: `Configuration` + `*Api`) |
+| 5 | `HealthExample.cs` · `TranscribeExample.cs` · `DiagnoseExample.cs` · `AuditExample.cs` | `D:\ProjetoFalaAI\FalaAI\FalaAI_api\sdks\dotnet\examples\*.cs` | os 7 exemplos GERADOS (usam o SDK .NET: `Configuration` + `*Api`) |
 | 6 | `README.md` | `D:\ProjetoFalaAI\FalaAI\FalaAI_api\sdks\dotnet\examples\README.md` | manual dos exemplos (**GERADO** pelo exportador v1.4.0 — versao/data) |
 | 7 | `demo_callcenter.mp3` | `D:\ProjetoFalaAI\FalaAI\FalaAI_api\sdks\dotnet\tests\e2e\demo_callcenter.mp3` | audio do teste (1.3 MB) |
 | 8 | `logs\dotnet_<endpoint>_<ts>_tst.json` (+ `.html`) | `D:\ProjetoFalaAI\FalaAI\FalaAI_api\sdks\dotnet\tests\e2e\logs\` | LOGS gerados pelo runner (**limpa os antigos a cada rodada**) |
@@ -19,8 +19,8 @@ Regra de fundo: `.opencode/rules/macro/modulos/falaai-api/sdk-fonte-unica.md` (t
 
 ## Requisitos do dev (inviolaveis)
 - R-A: roda em Docker DA LINGUAGEM (`mcr.microsoft.com/dotnet/sdk:8.0`)
-- R-B: roda os 4 exemplos GERADOS (`*Example.cs`) — nunca reescreve
-- R-C: LOG = request (codigo do exemplo) + response (o objeto do SDK .NET) + `.html` da auditoria
+- R-B: roda os 7 exemplos GERADOS (`*Example.cs`) — nunca reescreve
+- R-C: LOG = request (codigo do exemplo) + response (o objeto do SDK .NET) + `.html` de todo endpoint com html_report
 - R-D: **sem chave hardcoded** no runner — a chave vem do parâmetro `-ApiKey` (o §1.10 do `COMANDOS_PUBLICACAO.md` injeta). **NUNCA** gravar chave `fai_` em arquivo.
 - R-E: **PASSO 0 antes de tudo** — exemplos sincronizados com a FONTE UNICA
 
@@ -36,7 +36,7 @@ flowchart TD
     F --> G{"stdout = JSON valido?"}
     G -- "sim" --> H["log: logs/dotnet_<endpoint>_<ts>_tst.json<br/>{language, endpoint, generated_at,<br/>request = codigo C#, response = objeto do SDK}"]
     G -- "nao" --> I["log {response: null, error: stdout}"]
-    H --> J{"endpoint = auditoria?"}
+    H --> J{"tem html_report?"}
     I --> J
     J -- "sim" --> K["unzip html_report (base64+gzip)<br/>grava dotnet_auditoria_<ts>_tst.html"]
     J -- "nao" --> E

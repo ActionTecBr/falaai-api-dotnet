@@ -1,9 +1,9 @@
 # sdks/dotnet/examples - exemplos dotnet (canonicos)
 
-@version 1.4.0 | criado: 28/09/2026 17:22 | atualizado: 12/10/2026 17:09
+@version 1.5.0 | criado: 15/10/2026 22:20 | atualizado: 18/10/2026 00:21
 
 ## O que e
-Os 4 exemplos dotnet (.cs) dos endpoints da API, EXPORTADOS DA LANDING PAGE (fonte unica
+Os 7 exemplos dotnet (.cs) - 4 endpoints + 3 variantes do WhatsApp - EXPORTADOS DA LANDING PAGE (fonte unica
 de verdade). Nunca editados a mao.
 
 ## Fonte unica de verdade
@@ -24,25 +24,27 @@ _generate_dotnet_examples.mjs (prefixo _ = ferramenta, nao exemplo)
 
 ## Ordem obrigatoria (regra)
 1. Altere a FONTE (landing / SANDBOX_JSON_EXAMPLE).
-2. Valide o cURL primeiro:  node _generate_dotnet_examples.mjs --check   (exit 0 = ok)
+2. Valide o cURL primeiro:  node D:\ProjetoFalaAI\FalaAI\FalaAI_api\sdks\curl\examples\_generate_curl_examples.mjs --check   (exit 0 = ok)
 3. So depois espelhe nas outras linguagens.
 4. Cadeia integrada no pipeline: scripts/regenerate_all.py (T11) exporta via node.
 
 ## Relatorio da ultima execucao
 | Data | Modo | Resultado |
 |------|------|-----------|
-| 12/10/2026 17:09 | verificacao (--check) | OK - 5 exemplos dotnet 100% conforme a landing. |
+| 18/10/2026 00:21 | exportacao | OK - 7 exemplos dotnet exportados da landing. |
 
 | Arquivo | Endpoint | Status | Gerado em |
 |---------|----------|--------|-----------|
-| HealthExample.cs | GET  /v1/health | ok | 12/10/2026 15:04 |
-| TranscribeExample.cs | POST /v1/audio/transcriptions | ok | 12/10/2026 15:04 |
-| DiagnoseExample.cs | POST /v1/analyze/diagnostic | ok | 12/10/2026 15:04 |
-| AuditExample.cs | POST /v1/analyze/riskAudit | ok | 12/10/2026 15:04 |
-| whatsapp.cs | whatsapp.cs | ok | 12/10/2026 15:04 |
+| HealthExample.cs | GET  /v1/health | exportado (556 chars) | 18/10/2026 00:21 |
+| TranscribeExample.cs | POST /v1/audio/transcriptions | exportado (1208 chars) | 18/10/2026 00:21 |
+| DiagnoseExample.cs | POST /v1/analyze/diagnostic | exportado (4783 chars) | 18/10/2026 00:21 |
+| AuditExample.cs | POST /v1/analyze/riskAudit | exportado (3574 chars) | 18/10/2026 00:21 |
+| whatsapp_preview.cs | POST /v1/whatsapp/extractConversations | exportado (1331 chars) | 18/10/2026 00:21 |
+| whatsapp_periodo.cs | POST /v1/whatsapp/extractConversations | exportado (1356 chars) | 18/10/2026 00:21 |
+| whatsapp_janelas.cs | POST /v1/whatsapp/extractConversations | exportado (1449 chars) | 18/10/2026 00:21 |
 
 ## Datas
-- Criacao:     28/09/2026 17:22
-- Atualizacao: 12/10/2026 17:09
+- Criacao:     15/10/2026 22:20
+- Atualizacao: 18/10/2026 00:21
 
 Gerado automaticamente por _generate_dotnet_examples.mjs - NAO edite a mao.

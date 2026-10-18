@@ -11,8 +11,6 @@ Name | Type | Description | Notes
 **Blocked** | **int?** | Blocked detections | [optional] 
 **AudioEventsUsed** | **int?** | Audio events used | [optional] 
 **AudioEventsAggravated** | **int?** | Audio events aggravated | [optional] 
-**MacAudioApplied** | **Object** | MAC audio applied | [optional] 
-**MvadApplied** | **Object** | MVAD applied | [optional] 
 **TotalParticipants** | **int?** | Total participants | [optional] 
 **TotalAgents** | **int?** | Total agents | [optional] 
 **TotalClients** | **int?** | Total clients | [optional] 

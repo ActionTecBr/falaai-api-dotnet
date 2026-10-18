@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **PositiveNegativeRatio** | **Object** | Positive:negative ratio | [optional] 
 **GlobalRiskSeverity** | **string** | Global risk severity code | [optional] 
 **GlobalRiskSeverityLabel** | **string** | Global risk severity label | [optional] 
-**GlobalRiskSeverityColor** | **string** | Global risk severity color | [optional] 
 **RiskLikelihoodAvg** | **decimal?** | Risk likelihood avg | [optional] 
 **RiskImpactAvg** | **decimal?** | Risk impact avg | [optional] 
 

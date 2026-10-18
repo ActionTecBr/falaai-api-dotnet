@@ -10,7 +10,7 @@ body:
     id: version
     attributes:
       label: SDK version
-      placeholder: "1.21.47"
+      placeholder: "1.21.67"
     validations:
       required: true
   - type: dropdown

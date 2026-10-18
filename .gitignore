@@ -372,3 +372,6 @@ examples/_generate_*.mjs
 git_push.sh
 .travis.yml
 .gitlab-ci.yml
+
+# Lixeira (deletar/) - NUNCA versionar (v1.27.0)
+deletar/

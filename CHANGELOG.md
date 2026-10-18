@@ -5,6 +5,12 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.21.67] - 2026-10-18
+
+### Changed
+
+- Regenerated from the FalaAI API OpenAPI contract, version 1.21.67.
+
 ## [1.21.54] - 2026-10-12
 
 ### Changed
@@ -37,3 +43,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.21.47]: https://github.com/ActionTecBr/falaai-api-dotnet/releases/tag/v1.21.47
 [1.21.51]: https://github.com/ActionTecBr/falaai-api-dotnet/releases/tag/v1.21.51
 [1.21.54]: https://github.com/ActionTecBr/falaai-api-dotnet/releases/tag/v1.21.54
+[1.21.67]: https://github.com/ActionTecBr/falaai-api-dotnet/releases/tag/v1.21.67

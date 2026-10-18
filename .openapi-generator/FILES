@@ -29,6 +29,7 @@ docs/LocationInner.md
 docs/MessageResponse.md
 docs/Participant.md
 docs/ParticipantDiagnostic.md
+docs/ResponseExtractConversationsV1WhatsappExtractconversationsPost.md
 docs/RiskAuditAnalysisV2.md
 docs/RiskAuditAppliedActionV2.md
 docs/RiskAuditAudioEventModelV2.md
@@ -69,6 +70,13 @@ docs/WhatsappApi.md
 docs/WhatsappConversation.md
 docs/WhatsappConversationsResponse.md
 docs/WhatsappMeta.md
+docs/WhatsappPreviewItem.md
+docs/WhatsappPreviewItemBreakdown.md
+docs/WhatsappPreviewItemCredits.md
+docs/WhatsappPreviewItemMedia.md
+docs/WhatsappPreviewParams.md
+docs/WhatsappPreviewResponse.md
+docs/WhatsappPreviewWindow.md
 docs/WhatsappSpeaker.md
 docs/WhatsappUsage.md
 git_push.sh
@@ -103,6 +111,7 @@ src/FalaAI.Api.Test/Model/LocationInnerTests.cs
 src/FalaAI.Api.Test/Model/MessageResponseTests.cs
 src/FalaAI.Api.Test/Model/ParticipantDiagnosticTests.cs
 src/FalaAI.Api.Test/Model/ParticipantTests.cs
+src/FalaAI.Api.Test/Model/ResponseExtractConversationsV1WhatsappExtractconversationsPostTests.cs
 src/FalaAI.Api.Test/Model/RiskAuditAnalysisV2Tests.cs
 src/FalaAI.Api.Test/Model/RiskAuditAppliedActionV2Tests.cs
 src/FalaAI.Api.Test/Model/RiskAuditAudioEventModelV2Tests.cs
@@ -138,6 +147,13 @@ src/FalaAI.Api.Test/Model/WebhookListResponseTests.cs
 src/FalaAI.Api.Test/Model/WhatsappConversationTests.cs
 src/FalaAI.Api.Test/Model/WhatsappConversationsResponseTests.cs
 src/FalaAI.Api.Test/Model/WhatsappMetaTests.cs
+src/FalaAI.Api.Test/Model/WhatsappPreviewItemBreakdownTests.cs
+src/FalaAI.Api.Test/Model/WhatsappPreviewItemCreditsTests.cs
+src/FalaAI.Api.Test/Model/WhatsappPreviewItemMediaTests.cs
+src/FalaAI.Api.Test/Model/WhatsappPreviewItemTests.cs
+src/FalaAI.Api.Test/Model/WhatsappPreviewParamsTests.cs
+src/FalaAI.Api.Test/Model/WhatsappPreviewResponseTests.cs
+src/FalaAI.Api.Test/Model/WhatsappPreviewWindowTests.cs
 src/FalaAI.Api.Test/Model/WhatsappSpeakerTests.cs
 src/FalaAI.Api.Test/Model/WhatsappUsageTests.cs
 src/FalaAI.Api/Api/AnalysisApi.cs
@@ -189,6 +205,7 @@ src/FalaAI.Api/Model/LocationInner.cs
 src/FalaAI.Api/Model/MessageResponse.cs
 src/FalaAI.Api/Model/Participant.cs
 src/FalaAI.Api/Model/ParticipantDiagnostic.cs
+src/FalaAI.Api/Model/ResponseExtractConversationsV1WhatsappExtractconversationsPost.cs
 src/FalaAI.Api/Model/RiskAuditAnalysisV2.cs
 src/FalaAI.Api/Model/RiskAuditAppliedActionV2.cs
 src/FalaAI.Api/Model/RiskAuditAudioEventModelV2.cs
@@ -224,5 +241,12 @@ src/FalaAI.Api/Model/WebhookListResponse.cs
 src/FalaAI.Api/Model/WhatsappConversation.cs
 src/FalaAI.Api/Model/WhatsappConversationsResponse.cs
 src/FalaAI.Api/Model/WhatsappMeta.cs
+src/FalaAI.Api/Model/WhatsappPreviewItem.cs
+src/FalaAI.Api/Model/WhatsappPreviewItemBreakdown.cs
+src/FalaAI.Api/Model/WhatsappPreviewItemCredits.cs
+src/FalaAI.Api/Model/WhatsappPreviewItemMedia.cs
+src/FalaAI.Api/Model/WhatsappPreviewParams.cs
+src/FalaAI.Api/Model/WhatsappPreviewResponse.cs
+src/FalaAI.Api/Model/WhatsappPreviewWindow.cs
 src/FalaAI.Api/Model/WhatsappSpeaker.cs
 src/FalaAI.Api/Model/WhatsappUsage.cs

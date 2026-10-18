@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **Label** | **string** | Action label | 
 **Description** | **string** | Action description | 
 **Priority** | **string** | CRITICO/ALTO/MEDIO/BAIXO | 
-**Color** | **string** | Color | [optional] [default to ""]
-**Icon** | **string** | Icon | [optional] [default to ""]
 **Condition** | **string** | Condition | [optional] 
 **Reason** | **string** | Reason | [optional] [default to ""]
 
